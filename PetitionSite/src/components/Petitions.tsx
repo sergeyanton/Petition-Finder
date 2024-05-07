@@ -1,4 +1,4 @@
-const test = () => {
+const Petitions = () => {
     return (
         <div>
         <h1>All Petitions</h1>
@@ -11,4 +11,4 @@ const test = () => {
     )
 }
 
-export default test
+export default Petitions
