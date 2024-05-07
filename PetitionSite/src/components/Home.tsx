@@ -1,14 +1,14 @@
-const test = () => {
+const Home = () => {
     return (
         <div>
-            <h1>All Petitions</h1>
+            <h1>Home</h1>
             <div className="card">
                 <p>
-                    This is where all the petitions will be listed.
+                    Home
                 </p>
             </div>
         </div>
     )
 }
 
-export default test
+export default Home
