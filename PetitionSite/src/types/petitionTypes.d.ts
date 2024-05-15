@@ -1,0 +1,61 @@
+type Petition= {
+    petitionId: number,
+    title: string,
+    categoryId: number,
+    creationDate: string,
+    ownerId: number,
+    ownerFirstName: string,
+    ownerLastName: string,
+    numberOfSupporters: number,
+    // imageUrl: string
+}
+
+type PetitionReturn = {
+    petitions: Petition[],
+    count: number
+}
+
+type SupportTierPost = {
+    title: string,
+    description: string
+    cost: number
+}
+
+type SupportTier = {
+    supportTierId: number,
+} & SupportTierPost
+
+type petitionFull = {
+    description: string,
+    moneyRaised: number,
+    supportTiers: SupportTier[]
+} & Petition
+
+type Category = {
+    categoryId: number,
+    name: string
+}
+
+type PostSupport = {
+    supportTierId: number,
+    message: string
+}
+
+type Supporter = {
+    supportId: number,
+    supporterId: number,
+    supporterFirstName: string,
+    supporterLastName: string,
+    timestamp: string
+} & PostSupport
+
+type PetitionSearchQuery = {
+    q?: string,
+    ownerId?: number,
+    supporterId?: number,
+    categoryIds?: Array<number>,
+    supportingCost?: number,
+    sortBy?: string,
+    startIndex: number,
+    count?: number
+}
