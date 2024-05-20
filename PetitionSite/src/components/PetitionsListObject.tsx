@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
+import {Avatar, Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import axios from "axios";
 import CSS from 'csstype';
 // import {Card, CardContent, CardMedia, Typography} from "@mui/material";
@@ -12,10 +12,9 @@ interface IPetitionsProps {
 const PetitionsListObject = (props: IPetitionsProps) => {
     const [petition] = React.useState< Petition >(props.petition);
     const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
-    const [owner, setPetitionOwner] = useState<User| undefined>(undefined);
     const [errorFlag, setErrorFlag] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState("");
-
+    const [category, setCategory] = useState<Category | null>(null);
     useEffect(() => {
         const getPetitionImage = () => {
             axios.get(`http://localhost:4941/api/v1/petitions/${petition.petitionId}/image`)
@@ -28,20 +27,20 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                 });
         };
 
-        const getOwner = () => {
-            axios.get(`http://localhost:4941/api/v1/users/${petition.ownerId}`)
+        const getCategory = () => {
+            axios.get(`http://localhost:4941/api/v1/petitions/categories`)
                 .then((response) => {
-                    setPetitionOwner(response.data);
+                    const foundCategory = response.data.find((c: Category) => c.categoryId === petition.categoryId);
+                    setCategory(foundCategory || null);
                 })
                 .catch((error) => {
                     setErrorFlag(true);
                     setErrorMessage(error.toString());
                 });
-        };
+        }
+        getCategory();
         getPetitionImage();
-        getOwner();
-
-    }, [petition.petitionId,petition.ownerId]);
+    }, [petition.petitionId,petition.categoryId]);
 
 
 
@@ -52,6 +51,9 @@ const PetitionsListObject = (props: IPetitionsProps) => {
         margin: "10px",
         padding: "0px"
     };
+    const categoryColors = [
+        "#FF6B6B", "#FFD166", "#e516ff", "#56CCF2", "#9B51E0", "#F2994A", "#EB5757", "#2F80ED", "#27AE60", "#BB6BD9", "#33ffe6", "#caff33"
+    ];
     if (errorFlag)  {
         return (
             <div style={{color: "red"}}>
@@ -72,12 +74,27 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                         <Typography gutterBottom variant="h5" component="div">
                             {petition.title}
                         </Typography>
+                        {category && (
+                            <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: categoryColors[category.categoryId % categoryColors.length], padding: "2px 4px", borderRadius: "4px", display: "inline-block" }}>
+                                {category.name}
+                            </Typography>
+                        )}
                         <Typography variant="body2" color="text.secondary">
-                            Creation Date: {petition.creationDate}
+                            Creation Date: {new Date(petition.creationDate).toLocaleDateString()}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Owner: {owner?.firstName} {owner?.lastName}
-                        </Typography>
+
+                        <div style={{display: "flex", alignItems: "center"}}>
+                            {`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image` && (
+                                <Avatar
+                                    src={`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image`}
+                                    alt={`${petition.ownerFirstName} ${petition.ownerLastName}`}
+                                    sx={{marginRight: "8px"}}
+                                />
+                            )}
+                            <Typography gutterBottom variant="body1" component="div">
+                                {petition.ownerFirstName} {petition.ownerLastName}
+                            </Typography>
+                        </div>
                     </CardContent>
                 </CardActionArea>
             </Card>
