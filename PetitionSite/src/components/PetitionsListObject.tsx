@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import {Avatar, Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
+import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import axios from "axios";
 import CSS from 'csstype';
 
@@ -81,9 +81,11 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                                 {category.name}
                             </Typography>
                         )}
-                        <Typography gutterBottom variant="h5" component="div">
-                            {petition.title}
-                        </Typography>
+                        <Box sx={{ minHeight: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                            <Typography gutterBottom component="div" sx={{ fontWeight: 'bold', wordBreak: 'break-word'}}>
+                                {petition.title}
+                            </Typography>
+                        </Box>
                         <Typography variant="body2" color="text.secondary" align="left">
                             Creation Date: {new Date(petition.creationDate).toLocaleDateString()}
                         </Typography>

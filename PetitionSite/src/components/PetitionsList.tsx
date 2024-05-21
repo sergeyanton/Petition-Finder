@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from "react";
 import CSS from 'csstype';
 import TuneIcon from '@mui/icons-material/Tune';
+import SwapVertIcon from '@mui/icons-material/SwapVert';
 import {
     Paper,
     AlertTitle,
@@ -12,16 +13,19 @@ import {
     Typography,
     MenuItem,
     Menu,
-    IconButton, Pagination
+    IconButton, Pagination, Autocomplete, Stack
 } from "@mui/material";
 import PetitionsListObject from "./PetitionsListObject";
 const PetitionsList = () => {
     const [petitions, setPetitions] = useState<Array<Petition>>([]);
-    const [searchParams, setSearchParams] = useState<PetitionSearchParameters>({sortBy: 'CREATED_ASC',startIndex: 0, count: 10});
+    const [searchParams, setSearchParams] = useState<PetitionSearchParameters>({sortBy: 'CREATED_ASC',startIndex: 0, count: 8});
     const [errorFlag, setErrorFlag] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [sortAnchor, setSortAnchor] = useState<null | HTMLElement>(null);
+    const [categoryAnchor, setCategoryAnchor] = useState<null | HTMLElement>(null);
     const [totalPetitions, setTotalPetitions] = useState(0);
+    const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
 
 
     useEffect(() => {
@@ -39,6 +43,18 @@ const PetitionsList = () => {
                     setErrorMessage(error.toString() + " defaulting to old petitions changes app may not work as expected");
                 });
         };
+
+        const getCategories = () => {
+            axios.get('http://localhost:4941/api/v1/petitions/categories')
+                .then((response) => {
+                    setCategories(response.data);
+                })
+                .catch((error) => {
+                    setErrorFlag(true);
+                    setErrorMessage(error.toString());
+                });
+        };
+        getCategories();
         getPetitions();
     }, [searchParams]);
 
@@ -48,27 +64,39 @@ const PetitionsList = () => {
     const handleSearch = () => {
         const searchTerm = document.getElementById("search-input") as HTMLInputElement;
         if (searchTerm.value.trim() === '') {
-            setSearchParams({});
+            setSearchParams({ startIndex: 0, count: 8 });
         } else {
             setSearchParams({ q: searchTerm.value });
         }
     };
 
-    const handleFilterClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
+    const handleFilterOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setSortAnchor(event.currentTarget);
     };
     const handleFilterClose = () => {
-        setAnchorEl(null);
+        setSortAnchor(null);
+        setCategoryAnchor(null);
     };
 
     const handleSortChange = (sortOption: string) => {
-        setSearchParams({sortBy: sortOption});
+        setSearchParams({ ...searchParams, sortBy: sortOption, startIndex: 0 });
         handleFilterClose();
     };
 
-    const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
         setSearchParams({ ...searchParams, startIndex: (value - 1) * searchParams.count! });
     }
+
+    const handleCategoryChange = (_event: React.SyntheticEvent, value: Category[]) => {
+        setSelectedCategories(value.map(c => c.categoryId));
+        setSearchParams({ ...searchParams, categoryIds: value.map(c => c.categoryId), startIndex: 0 });
+        handleFilterClose();
+    };
+
+    const handleCategoryClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setCategoryAnchor(event.currentTarget);
+    };
+
     const card: CSS.Properties = {
         padding: "10px",
         margin: "20px",
@@ -92,12 +120,12 @@ const PetitionsList = () => {
                 <div>
                     <Box style={box}>
                         <TextField id="search-input" label="Search Petitions" variant="outlined" onChange={handleSearch}/>
-                        <IconButton onClick={handleFilterClick} >
-                            <TuneIcon/>
+                        <IconButton onClick={handleFilterOpen} >
+                            <SwapVertIcon/>
                         </IconButton>
                         <Menu
-                            anchorEl={anchorEl}
-                            open={Boolean(anchorEl)}
+                            anchorEl={sortAnchor}
+                            open={Boolean(sortAnchor)}
                             onClose={handleFilterClose}
                         >
                             <MenuItem onClick={() => handleSortChange('ALPHABETICAL_ASC')}>Ascending alphabetically</MenuItem>
@@ -107,12 +135,40 @@ const PetitionsList = () => {
                             <MenuItem onClick={() => handleSortChange('CREATED_ASC')}>Chronologically by creation date</MenuItem>
                             <MenuItem onClick={() => handleSortChange('CREATED_DESC')}>Reverse Chronologically by creation date</MenuItem>
                         </Menu>
+                        <IconButton onClick={handleCategoryClick} >
+                            <TuneIcon />
+                        </IconButton>
+                        <Menu
+                            anchorEl={categoryAnchor}
+                            open={Boolean(categoryAnchor)}
+                            onClose={handleFilterClose}
+                        >
+                            <Stack spacing={3} sx={{ width: 500, padding: 2 }}>
+                                <Autocomplete
+                                    multiple
+                                    id="category-filter"
+                                    options={categories}
+                                    getOptionLabel={(option) => option.name}
+                                    value={categories.filter(c => selectedCategories.includes(c.categoryId))}
+                                    onChange={handleCategoryChange}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}
+                                            variant="standard"
+                                            label="Filter by Categories"
+                                            placeholder="Select categories"
+                                        />
+                                    )}
+                                />
+                            </Stack>
+                        </Menu>
                     </Box>
                     <Box style={box}>
                         <Pagination
                             count={Math.ceil(totalPetitions / searchParams.count!)}
                             onChange={handlePageChange}
                             shape="rounded"
+                            showFirstButton showLastButton
                         />
                     </Box>
                     {errorFlag ? (
