@@ -2,19 +2,19 @@ import React, {useState,useEffect} from "react";
 import {Avatar, Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import axios from "axios";
 import CSS from 'csstype';
-// import {Card, CardContent, CardMedia, Typography} from "@mui/material";
 
 
 interface IPetitionsProps {
     petition: Petition;
 }
 
+
 const PetitionsListObject = (props: IPetitionsProps) => {
     const [petition] = React.useState< Petition >(props.petition);
     const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
+    const [category, setCategory] = useState<Category | null>(null);
     const [errorFlag, setErrorFlag] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState("");
-    const [category, setCategory] = useState<Category | null>(null);
     useEffect(() => {
         const getPetitionImage = () => {
             axios.get(`http://localhost:4941/api/v1/petitions/${petition.petitionId}/image`)
@@ -37,7 +37,9 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                     setErrorFlag(true);
                     setErrorMessage(error.toString());
                 });
-        }
+        };
+
+
         getCategory();
         getPetitionImage();
     }, [petition.petitionId,petition.categoryId]);
@@ -51,9 +53,12 @@ const PetitionsListObject = (props: IPetitionsProps) => {
         margin: "10px",
         padding: "0px"
     };
+
     const categoryColors = [
         "#FF6B6B", "#FFD166", "#e516ff", "#56CCF2", "#9B51E0", "#F2994A", "#EB5757", "#2F80ED", "#27AE60", "#BB6BD9", "#33ffe6", "#caff33"
     ];
+
+
     if (errorFlag)  {
         return (
             <div style={{color: "red"}}>
@@ -71,23 +76,25 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                         alt={petition.title}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {petition.title}
-                        </Typography>
                         {category && (
-                            <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: categoryColors[category.categoryId % categoryColors.length], padding: "2px 4px", borderRadius: "4px", display: "inline-block" }}>
+                            <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: categoryColors[category.categoryId % categoryColors.length], padding: "2px 4px", borderRadius: "4px", display: "inline-block", marginBottom: "8px" }}>
                                 {category.name}
                             </Typography>
                         )}
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography gutterBottom variant="h5" component="div">
+                            {petition.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" align="left">
                             Creation Date: {new Date(petition.creationDate).toLocaleDateString()}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" align="left">
+                            Minimum Supporting Cost: ${petition.supportingCost}
                         </Typography>
 
                         <div style={{display: "flex", alignItems: "center"}}>
                             {`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image` && (
                                 <Avatar
                                     src={`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image`}
-                                    alt={`${petition.ownerFirstName} ${petition.ownerLastName}`}
                                     sx={{marginRight: "8px"}}
                                 />
                             )}
@@ -95,6 +102,7 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                                 {petition.ownerFirstName} {petition.ownerLastName}
                             </Typography>
                         </div>
+
                     </CardContent>
                 </CardActionArea>
             </Card>

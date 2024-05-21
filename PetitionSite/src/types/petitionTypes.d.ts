@@ -7,7 +7,20 @@ type Petition= {
     ownerFirstName: string,
     ownerLastName: string,
     numberOfSupporters: number,
-    // imageUrl: string
+    supportingCost: number
+    description: string,
+}
+
+type PetitionSearchParameters = {
+    startIndex?: number,
+    count?: number,
+    q?: string,
+    categoryId?: number,
+    categoryIds?: number[],
+    supportingCost?: number,
+    ownerId?: number,
+    supporterId?: number,
+    sortBy?: string
 }
 
 type PetitionReturn = {
