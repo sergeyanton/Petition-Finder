@@ -59,7 +59,7 @@ const Petition = () => {
     }, [id]);
 
 
-
+//TODO: fix similar petitions, currently if click similar petition, it will have itself as similar petition.
     const getSimilarPetitions = () => {
         if (id !== undefined && petition) {
             return allPetitions.filter((p: Petition) => {
