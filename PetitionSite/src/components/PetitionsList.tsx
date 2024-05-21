@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, {useEffect, useState} from "react";
 import CSS from 'csstype';
-import TuneIcon from '@mui/icons-material/Tune';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import {
     Paper,
@@ -13,20 +12,20 @@ import {
     Typography,
     MenuItem,
     Menu,
-    IconButton, Pagination, Autocomplete, Stack
+    IconButton, Pagination, Autocomplete, Button
 } from "@mui/material";
 import PetitionsListObject from "./PetitionsListObject";
 const PetitionsList = () => {
     const [petitions, setPetitions] = useState<Array<Petition>>([]);
-    const [searchParams, setSearchParams] = useState<PetitionSearchParameters>({sortBy: 'CREATED_ASC',startIndex: 0, count: 8});
+    const [searchParams, setSearchParams] = useState<PetitionSearchParameters>({ sortBy: 'CREATED_ASC', startIndex: 0, count: 8 });
     const [errorFlag, setErrorFlag] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [sortAnchor, setSortAnchor] = useState<null | HTMLElement>(null);
-    const [categoryAnchor, setCategoryAnchor] = useState<null | HTMLElement>(null);
     const [totalPetitions, setTotalPetitions] = useState(0);
-    const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
-
+    const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    const [supportingCost, setSupportingCost] = useState<number | undefined>(undefined);
 
     useEffect(() => {
         const getPetitions = () => {
@@ -54,28 +53,24 @@ const PetitionsList = () => {
                     setErrorMessage(error.toString());
                 });
         };
+
         getCategories();
         getPetitions();
     }, [searchParams]);
 
-
     const petition_rows = () => petitions.map((petition: Petition) => <PetitionsListObject key={petition.petitionId + petition.title} petition={petition} />);
 
-    const handleSearch = () => {
-        const searchTerm = document.getElementById("search-input") as HTMLInputElement;
-        if (searchTerm.value.trim() === '') {
-            setSearchParams({ startIndex: 0, count: 8 });
-        } else {
-            setSearchParams({ q: searchTerm.value });
-        }
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
     };
 
-    const handleFilterOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+    const handleFilterClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setSortAnchor(event.currentTarget);
     };
+
     const handleFilterClose = () => {
         setSortAnchor(null);
-        setCategoryAnchor(null);
     };
 
     const handleSortChange = (sortOption: string) => {
@@ -83,18 +78,39 @@ const PetitionsList = () => {
         handleFilterClose();
     };
 
-    const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
-        setSearchParams({ ...searchParams, startIndex: (value - 1) * searchParams.count! });
-    }
-
     const handleCategoryChange = (_event: React.SyntheticEvent, value: Category[]) => {
-        setSelectedCategories(value.map(c => c.categoryId));
-        setSearchParams({ ...searchParams, categoryIds: value.map(c => c.categoryId), startIndex: 0 });
-        handleFilterClose();
+        setSelectedCategories(value.map((category) => category.categoryId));
     };
 
-    const handleCategoryClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setCategoryAnchor(event.currentTarget);
+    const handleSupportingCostChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value ? parseInt(event.target.value) : undefined;
+        setSupportingCost(value);
+    };
+
+    const handleApplyFilters = () => {
+        let params: PetitionSearchParameters = { startIndex: 0, count: 8 };
+        if (searchTerm.trim() !== '') {
+            params = { ...params, q: searchTerm, startIndex: 0 };
+        }
+        if (selectedCategories.length > 0) {
+            params = { ...params, categoryIds: selectedCategories, startIndex: 0 };
+        }
+        if (supportingCost !== undefined) {
+            params = { ...params, supportingCost, startIndex: 0 };
+        }
+        setSearchParams(params);
+    };
+
+    const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+        setSearchParams({ ...searchParams, startIndex: (value - 1) * searchParams.count! });
+    };
+
+    //TODO: make clear actually clear the search box
+    const handleClearFilters = () => {
+        setSearchTerm('');
+        setSelectedCategories([]);
+        setSupportingCost(undefined);
+        setSearchParams({ sortBy: 'CREATED_ASC', startIndex: 0, count: 8 });
     };
 
     const card: CSS.Properties = {
@@ -109,9 +125,7 @@ const PetitionsList = () => {
         justifyContent: "center",
         alignItems: "center",
         marginBottom: "20px",
-    }
-
-    //TODO: FIX BUG, After sorting, pagination breaks
+    };
 
     return (
         <Grid>
@@ -119,9 +133,9 @@ const PetitionsList = () => {
                 <h1>PetitionsList </h1>
                 <div>
                     <Box style={box}>
-                        <TextField id="search-input" label="Search Petitions" variant="outlined" onChange={handleSearch}/>
-                        <IconButton onClick={handleFilterOpen} >
-                            <SwapVertIcon/>
+                        <TextField id="search-input" label="Search Petitions" variant="outlined" onChange={handleSearch} />
+                        <IconButton onClick={handleFilterClick} >
+                            <SwapVertIcon />
                         </IconButton>
                         <Menu
                             anchorEl={sortAnchor}
@@ -135,40 +149,45 @@ const PetitionsList = () => {
                             <MenuItem onClick={() => handleSortChange('CREATED_ASC')}>Chronologically by creation date</MenuItem>
                             <MenuItem onClick={() => handleSortChange('CREATED_DESC')}>Reverse Chronologically by creation date</MenuItem>
                         </Menu>
-                        <IconButton onClick={handleCategoryClick} >
-                            <TuneIcon />
-                        </IconButton>
-                        <Menu
-                            anchorEl={categoryAnchor}
-                            open={Boolean(categoryAnchor)}
-                            onClose={handleFilterClose}
-                        >
-                            <Stack spacing={3} sx={{ width: 500, padding: 2 }}>
-                                <Autocomplete
-                                    multiple
-                                    id="category-filter"
-                                    options={categories}
-                                    getOptionLabel={(option) => option.name}
-                                    value={categories.filter(c => selectedCategories.includes(c.categoryId))}
-                                    onChange={handleCategoryChange}
-                                    renderInput={(params) => (
-                                        <TextField
-                                            {...params}
-                                            variant="standard"
-                                            label="Filter by Categories"
-                                            placeholder="Select categories"
-                                        />
-                                    )}
+                    </Box>
+                    <Box style={box} sx={{ minWidth: '800px' }}>
+                        <Autocomplete
+                            multiple
+                            id="category-filter"
+                            options={categories}
+                            getOptionLabel={(option) => option.name}
+                            value={categories.filter((c) => selectedCategories.includes(c.categoryId))}
+                            onChange={handleCategoryChange}
+                            sx={{ minWidth: '300px' }}
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    label="Filter by Categories"
+                                    placeholder="Select categories"
                                 />
-                            </Stack>
-                        </Menu>
+                            )}
+                        />
+                        <TextField
+                            id="supporting-cost-filter"
+                            label="Max Supporting Cost"
+                            type="number"
+                            value={supportingCost || ''}
+                            onChange={handleSupportingCostChange}
+                        />
+                        <Button variant="contained" onClick={handleApplyFilters} sx={{ padding: '15px' }}>
+                            Apply
+                        </Button>
+                        <Button variant="outlined" onClick={handleClearFilters} sx={{ padding: '15px' }}>
+                            Clear
+                        </Button>
                     </Box>
                     <Box style={box}>
                         <Pagination
                             count={Math.ceil(totalPetitions / searchParams.count!)}
                             onChange={handlePageChange}
                             shape="rounded"
-                            showFirstButton showLastButton
+                            showFirstButton
+                            showLastButton
                         />
                     </Box>
                     {errorFlag ? (
@@ -182,8 +201,7 @@ const PetitionsList = () => {
                         </Typography>
                     ) : (
                         petition_rows()
-                        )
-                    }
+                    )}
                 </div>
             </Paper>
         </Grid>

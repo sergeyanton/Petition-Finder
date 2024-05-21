@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import axios from "axios";
 import CSS from 'csstype';
+import {useNavigate} from "react-router-dom";
 
 
 interface IPetitionsProps {
@@ -15,6 +16,7 @@ const PetitionsListObject = (props: IPetitionsProps) => {
     const [category, setCategory] = useState<Category | null>(null);
     const [errorFlag, setErrorFlag] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState("");
+    const navigate = useNavigate();
     useEffect(() => {
         const getPetitionImage = () => {
             axios.get(`http://localhost:4941/api/v1/petitions/${petition.petitionId}/image`)
@@ -44,8 +46,9 @@ const PetitionsListObject = (props: IPetitionsProps) => {
         getPetitionImage();
     }, [petition.petitionId,petition.categoryId]);
 
-
-
+    const handlePetitionClick = () => {
+        navigate(`/petition/${petition.petitionId}`);
+    };
 
     const petitionCardStyles: CSS.Properties = {
         display: "inline-block",
@@ -67,7 +70,7 @@ const PetitionsListObject = (props: IPetitionsProps) => {
         )
     } else {
         return (
-            <Card sx={petitionCardStyles}>
+            <Card sx={petitionCardStyles} onClick={handlePetitionClick}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
