@@ -1,22 +1,23 @@
-import React, {useState,useEffect} from "react";
-import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import axios from "axios";
 import CSS from 'csstype';
-import {useNavigate} from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 interface IPetitionsProps {
     petition: Petition;
+    currentPetitionId: number;
+    categoryId: number;
+    ownerId: number;
 }
 
-
-const PetitionsListObject = (props: IPetitionsProps) => {
-    const [petition] = React.useState< Petition >(props.petition);
+const PetitionsListObject = ({ petition, currentPetitionId, categoryId, ownerId }: IPetitionsProps) => {
     const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
     const [category, setCategory] = useState<Category | null>(null);
     const [errorFlag, setErrorFlag] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState("");
     const navigate = useNavigate();
+
     useEffect(() => {
         const getPetitionImage = () => {
             axios.get(`http://localhost:4941/api/v1/petitions/${petition.petitionId}/image`)
@@ -41,13 +42,18 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                 });
         };
 
-
         getCategory();
         getPetitionImage();
-    }, [petition.petitionId,petition.categoryId]);
+    }, [petition.petitionId, petition.categoryId]);
 
     const handlePetitionClick = () => {
-        navigate(`/petition/${petition.petitionId}`);
+        navigate(`/petition/${petition.petitionId}`, {
+            state: {
+                currentPetitionId,
+                categoryId,
+                ownerId,
+            },
+        });
     };
 
     const petitionCardStyles: CSS.Properties = {
@@ -61,10 +67,9 @@ const PetitionsListObject = (props: IPetitionsProps) => {
         "#FF6B6B", "#FFD166", "#e516ff", "#56CCF2", "#9B51E0", "#F2994A", "#EB5757", "#2F80ED", "#27AE60", "#BB6BD9", "#33ffe6", "#caff33"
     ];
 
-
-    if (errorFlag)  {
+    if (errorFlag) {
         return (
-            <div style={{color: "red"}}>
+            <div style={{ color: "red" }}>
                 {errorMessage}
             </div>
         )
@@ -85,7 +90,7 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                             </Typography>
                         )}
                         <Box sx={{ minHeight: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                            <Typography gutterBottom component="div" sx={{ fontWeight: 'bold', wordBreak: 'break-word'}}>
+                            <Typography gutterBottom component="div" sx={{ fontWeight: 'bold', wordBreak: 'break-word' }}>
                                 {petition.title}
                             </Typography>
                         </Box>
@@ -96,11 +101,11 @@ const PetitionsListObject = (props: IPetitionsProps) => {
                             Minimum Supporting Cost: ${petition.supportingCost}
                         </Typography>
 
-                        <div style={{display: "flex", alignItems: "center"}}>
+                        <div style={{ display: "flex", alignItems: "center" }}>
                             {`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image` && (
                                 <Avatar
                                     src={`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image`}
-                                    sx={{marginRight: "8px"}}
+                                    sx={{ marginRight: "8px" }}
                                 />
                             )}
                             <Typography gutterBottom variant="body1" component="div">
@@ -113,7 +118,6 @@ const PetitionsListObject = (props: IPetitionsProps) => {
             </Card>
         );
     }
-
 }
 
 export default PetitionsListObject;

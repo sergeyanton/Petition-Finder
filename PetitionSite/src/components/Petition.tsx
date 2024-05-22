@@ -1,5 +1,5 @@
-import  { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import CSS from 'csstype';
 import { Alert, AlertTitle, Avatar, Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
@@ -7,12 +7,16 @@ import PetitionsListObject from './PetitionsListObject';
 
 const Petition = () => {
     const { id } = useParams<{ id: string }>();
+    const location = useLocation();
+    const [currentPetitionId, setCurrentPetitionId] = useState<number | undefined>(undefined);
+    const [categoryId, setCategoryId] = useState<number | undefined>(undefined);
+    const [ownerId, setOwnerId] = useState<number | undefined>(undefined);
     const [petition, setPetition] = useState<Petition | null>(null);
     const [errorFlag, setErrorFlag] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [supporters, setSupporters] = useState<Supporter[]>([]);
     const [supportTiers, setSupportTiers] = useState<SupportTier[]>([]);
-    const [allPetitions, setAllPetitions] = useState<Petition[]>([]);
+    const [similarPetitions, setSimilarPetitions] = useState<Petition[]>([]);
 
     useEffect(() => {
         const getPetition = () => {
@@ -21,12 +25,11 @@ const Petition = () => {
                     setPetition(response.data);
                     setSupportTiers(response.data.supportTiers);
                     setErrorFlag(false);
-                    getAllPetitions();
-
+                    updateSimilarPetitions(response.data.petitionId, response.data.categoryId, response.data.ownerId);
                 })
                 .catch((error) => {
                     setErrorFlag(true);
-                    setErrorMessage(error.toString() +" Error fetching petition");
+                    setErrorMessage(error.toString() + " Error fetching petition");
                 });
         };
 
@@ -34,6 +37,7 @@ const Petition = () => {
             axios.get(`http://localhost:4941/api/v1/petitions/${id}/supporters`)
                 .then((response) => {
                     setSupporters(response.data);
+                    setErrorFlag(false);
                 })
                 .catch((error) => {
                     setErrorFlag(true);
@@ -41,36 +45,53 @@ const Petition = () => {
                 });
         };
 
-        const getAllPetitions = () => {
-            axios.get(`http://localhost:4941/api/v1/petitions`)
-                .then((response) => {
-                    setAllPetitions(response.data.petitions);
-                })
-                .catch((error) => {
-                    setErrorFlag(true);
-                    setErrorMessage(error.toString() + " Error fetching all petitions");
-                });
+        const updateSimilarPetitions = (currentPetitionId: number, categoryId: number, ownerId: number) => {
+            setCurrentPetitionId(currentPetitionId);
+            setCategoryId(categoryId);
+            setOwnerId(ownerId);
+            getSimilarPetitions(currentPetitionId, categoryId, ownerId);
         };
-
-
 
         getPetition();
         getSupporters();
-    }, [id]);
+    }, [id, location.state]);
 
+    const getSimilarPetitions = (currentPetitionId: number, categoryId: number, ownerId: number) => {
+        Promise.all([
+            axios.get('http://localhost:4941/api/v1/petitions', {
+                params: {
+                    categoryIds: [categoryId],
+                },
+            }),
+            axios.get('http://localhost:4941/api/v1/petitions', {
+                params: {
+                    ownerId: ownerId,
+                },
+            }),
+        ])
+            .then((responses) => {
+                const categoryIdPetitions = responses[0].data.petitions;
+                const ownerIdPetitions = responses[1].data.petitions;
 
-//TODO: fix similar petitions, currently if click similar petition, it will have itself as similar petition.
-    const getSimilarPetitions = () => {
-        if (id !== undefined && petition) {
-            return allPetitions.filter((p: Petition) => {
-                return (p.petitionId != +id) && (
-                    p.categoryId === petition?.categoryId || p.ownerId === petition?.ownerId
-                );
+                const uniquePetitions: Petition[] = [];
+                const seenPetitions: Set<number> = new Set();
+
+                [...categoryIdPetitions, ...ownerIdPetitions].forEach((petition) => {
+                    if (!seenPetitions.has(petition.petitionId) && petition.petitionId !== currentPetitionId) {
+                        seenPetitions.add(petition.petitionId);
+                        uniquePetitions.push(petition);
+                    }
+                });
+
+                setSimilarPetitions(uniquePetitions);
+                setErrorFlag(false);
+            })
+            .catch((error) => {
+                setErrorFlag(true);
+                setErrorMessage(error.toString() + " Error fetching all petitions");
             });
-        } else {
-            return [];
-        }
     };
+
     const getSupportTierName = (supportTierId: number) => {
         const supportTier = supportTiers.find((tier) => tier.supportTierId === supportTierId);
         return supportTier ? supportTier.title : 'Unknown';
@@ -188,11 +209,16 @@ const Petition = () => {
                         <Typography variant="h4" component="div" sx={{ marginTop: '20px', minHeight: '100px' }}>
                             Similar Petitions:
                         </Typography>
-                        {getSimilarPetitions().length > 0 ? (
-                            <Grid container spacing={2} sx={{alignItems: 'center', justifyContent: 'center' }} >
-                                {getSimilarPetitions().map((petition) => (
-                                    <Grid sx={{padding: '5px' }}>
-                                        <PetitionsListObject petition={petition} />
+                        {similarPetitions.length > 0 ? (
+                            <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'center' }} >
+                                {similarPetitions.map((petition) => (
+                                    <Grid sx={{ padding: '5px' }}>
+                                        <PetitionsListObject
+                                            petition={petition}
+                                            currentPetitionId={currentPetitionId || petition.petitionId}
+                                            categoryId={categoryId || petition.categoryId}
+                                            ownerId={ownerId || petition.ownerId}
+                                        />
                                     </Grid>
                                 ))}
                             </Grid>
