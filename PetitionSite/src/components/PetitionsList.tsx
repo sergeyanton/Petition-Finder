@@ -15,6 +15,9 @@ import {
     IconButton, Pagination, Autocomplete, Button
 } from "@mui/material";
 import PetitionsListObject from "./PetitionsListObject";
+import Navbar from './Navbar';
+
+
 const PetitionsList = () => {
     const [petitions, setPetitions] = useState<Array<Petition>>([]);
     const [searchParams, setSearchParams] = useState<PetitionSearchParameters>({ sortBy: 'CREATED_ASC', startIndex: 0, count: 8 });
@@ -58,7 +61,7 @@ const PetitionsList = () => {
         getPetitions();
     }, [searchParams]);
 
-    const petition_rows = () => petitions.map((petition: Petition) => <PetitionsListObject key={petition.petitionId + petition.title} petition={petition} />);
+    const petition_rows = () => petitions.map((petition: Petition) => <PetitionsListObject key={petition.petitionId + petition.title} petition={petition}  categoryId={petition.categoryId} currentPetitionId={petition.petitionId} ownerId={petition.ownerId}/>);
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
@@ -129,6 +132,7 @@ const PetitionsList = () => {
 
     return (
         <Grid>
+            <Navbar/>
             <Paper elevation={3} style={card}>
                 <h1>PetitionsList </h1>
                 <div>

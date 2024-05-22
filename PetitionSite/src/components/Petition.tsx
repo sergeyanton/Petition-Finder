@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import  { useState, useEffect } from 'react';
+import {useParams, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import CSS from 'csstype';
-import { Alert, AlertTitle, Avatar, Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Alert, AlertTitle, Avatar, Box,  Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import PetitionsListObject from './PetitionsListObject';
+import Navbar from "./Navbar.tsx";
 
 const Petition = () => {
     const { id } = useParams<{ id: string }>();
@@ -97,6 +98,7 @@ const Petition = () => {
         return supportTier ? supportTier.title : 'Unknown';
     };
 
+
     const petitionCardStyles1: CSS.Properties = {
         width: "1000px",
         margin: "10px",
@@ -106,6 +108,7 @@ const Petition = () => {
 
     return (
         <Card>
+            <Navbar />
             {errorFlag && (
                 <Alert severity="error">
                     <AlertTitle>Error</AlertTitle>
@@ -223,9 +226,11 @@ const Petition = () => {
                                 ))}
                             </Grid>
                         ) : (
-                            <Typography variant="h5" sx={{ padding: '20px', alignItems: 'center', justifyContent: 'center' }}>
-                                No similar petitions
-                            </Typography>
+                            <Box sx={{ justifyContent: 'center', alignItems: 'center', minHeight: '50px' }}>
+                                <Typography variant="h5" sx={{ padding: '20px' }}>
+                                    No similar petitions
+                                </Typography>
+                            </Box>
                         )}
                     </Card>
                 </>
