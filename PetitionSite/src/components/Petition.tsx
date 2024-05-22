@@ -110,7 +110,13 @@ const Petition = () => {
         <Card>
             <Navbar />
             {errorFlag && (
-                <Alert severity="error">
+                <Alert severity="error" sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'center'
+                }}>
                     <AlertTitle>Error</AlertTitle>
                     {errorMessage}
                 </Alert>

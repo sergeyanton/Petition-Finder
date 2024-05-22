@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import CSS from 'csstype';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import {
@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import PetitionsListObject from "./PetitionsListObject";
 import Navbar from './Navbar';
+
 
 
 const PetitionsList = () => {
@@ -209,6 +210,7 @@ const PetitionsList = () => {
                 </div>
             </Paper>
         </Grid>
+
     );
 };
 

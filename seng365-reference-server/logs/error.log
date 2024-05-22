@@ -2,3 +2,829 @@
 2024-05-22 12:18:23:1823 [31merror[39m: [31mUnable to connect to MySQL.[39m
 2024-05-22 12:18:42:1842 [31merror[39m: [31mUnable to connect to MySQL.[39m
 2024-05-22 12:19:16:1916 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2024-05-22 15:27:01:271 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-22 21:07:08:78 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\user.model.js:17:48[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\user.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\user.model.js:4:12)[39m
+[31m    at Object.register (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\user.model.js:15:25)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\user.controller.js:54:35[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\user.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:34:734 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:34:734 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:34:734 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:34:734 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:40:740 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:40:740 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:40:740 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:40:740 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:47:747 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:47:747 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:47:747 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:47:747 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:48:748 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:48:748 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:48:748 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:48:748 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:49:749 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:49:749 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:49:749 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:07:49:749 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-22 21:08:25:825 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2024-05-22 21:52:16:5216 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-22 22:13:21:1321 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-22 22:42:53:4253 [31merror[39m: [31mDuplicate entry 'antonets.sergey@gmail.com' for key 'unique_key'[39m
+2024-05-22 23:01:13:113 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-22 23:22:13:2213 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-22 23:24:55:2455 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 00:47:23:4723 [31merror[39m: [31mread ECONNRESET[39m
+2024-05-23 00:47:23:4723 [31merror[39m: [31mread ECONNRESET[39m
+2024-05-23 00:47:23:4723 [31merror[39m: [31mread ECONNRESET[39m
+2024-05-23 00:47:23:4723 [31merror[39m: [31mread ECONNRESET[39m
+2024-05-23 00:47:23:4723 [31merror[39m: [31mread ECONNRESET[39m
+2024-05-23 00:47:23:4723 [31merror[39m: [31mread ECONNRESET[39m
+2024-05-23 00:47:23:4723 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:47:23:4723 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:52:16:5216 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:52:16:5216 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:52:16:5216 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:52:16:5216 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:53:12:5312 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:53:12:5312 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:53:12:5312 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 00:53:12:5312 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:05:55 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:05:55 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:05:55 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:05:55 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:06:56 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:06:56 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:06:56 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:06:56 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:14:514 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:14:514 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:14:514 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:14:514 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:30:530 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:30:530 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:30:530 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:159:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.getCategories (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:157:29)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:301:43[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:31:71 {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:05:30:530 [31merror[39m: [31mError[39m
+[31m    at PromisePool.query (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\node_modules\mysql2\promise.js:341:22)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:83:44[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:4:12)[39m
+[31m    at Object.viewAll (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\models\petition.model.js:14:34)[39m
+[31m    at C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:86:42[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at fulfilled (C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\dist\app\controllers\petition.controller.js:28:58) {[39m
+[31m  code: 'ECONNREFUSED',[39m
+[31m  errno: undefined,[39m
+[31m  sql: undefined,[39m
+[31m  sqlState: undefined,[39m
+[31m  sqlMessage: undefined[39m
+[31m}[39m
+2024-05-23 01:56:12:5612 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 03:59:45:5945 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:00:59:059 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:01:00:10 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:01:00:10 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:01:00:10 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:01:01:11 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:01:06:16 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:01:06:16 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:01:06:16 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:01:07:17 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:03:18:318 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-23 04:04:46:446 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
