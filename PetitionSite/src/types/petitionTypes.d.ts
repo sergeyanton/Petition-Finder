@@ -13,6 +13,13 @@ type Petition= {
     supportTiers: SupportTier[]
 }
 
+type PetitionPost = {
+    title: string,
+    description: string,
+    categoryId: number,
+    supportTiers: SupportTierPost[]
+}
+
 type PetitionSearchParameters = {
     startIndex?: number,
     count?: number,
@@ -63,14 +70,3 @@ type Supporter = {
     supporterLastName: string,
     timestamp: string
 } & PostSupport
-
-type PetitionSearchQuery = {
-    q?: string,
-    ownerId?: number,
-    supporterId?: number,
-    categoryIds?: Array<number>,
-    supportingCost?: number,
-    sortBy?: string,
-    startIndex: number,
-    count?: number
-}

@@ -31,6 +31,9 @@ const Navbar = () => {
         navigate('/');
         setLogoutDialogOpen(false);
     };
+    const handleCreatePetition = () => {
+        navigate('/createPetition');
+    }
 
     const handleLogoutCancel = () => {
         setLogoutDialogOpen(false);
@@ -39,11 +42,17 @@ const Navbar = () => {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Box sx={{ flexGrow: 1 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center'}}>
                     <Button variant="outlined" color="inherit" onClick={() => navigate('/')}>
                         Home
                     </Button>
+                    {isLoggedIn && (
+                        <Button variant="outlined" color="inherit" onClick={handleCreatePetition} sx={{ ml: 2 }}>
+                            Create Petition
+                        </Button>
+                    )}
                 </Box>
+                <Box sx={{ flexGrow: 1 }} />
                 {isLoggedIn ? (
                     <>
                         <Button variant="outlined" color="inherit" onClick={handleProfile} sx={{ mr: 2 }}>

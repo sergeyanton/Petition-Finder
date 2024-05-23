@@ -5,9 +5,11 @@ import Home from "./components/Home.tsx";
 import Petition from "./components/Petition.tsx";
 import Register from "./components/Register.tsx";
 import LogIn from "./components/LogIn.tsx";
+import CreatePetition from "./components/CreatePetition.tsx";
+import Profile from "./components/Profile.tsx";
 
 function App() {
-  return (
+    return (
       <div className="App">
           <Router>
               <div>
@@ -17,6 +19,8 @@ function App() {
                     <Route path="*" element={<Home/>}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/login" element={<LogIn/>}/>
+                    <Route path="/createPetition" element={<CreatePetition/>}/>
+                    <Route path="/profile" element={<Profile/>}/>
                   </Routes>
               </div>
           </Router>

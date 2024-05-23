@@ -1,10 +1,12 @@
-import  { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import {useParams, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import CSS from 'csstype';
-import { Alert, AlertTitle, Avatar, Box,  Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import {Alert, AlertTitle, Avatar, Box, Button, Card, CardContent, CardMedia, Grid, Typography} from "@mui/material";
 import PetitionsListObject from './PetitionsListObject';
 import Navbar from "./Navbar.tsx";
+import useUserStore from "../store/UserStore.ts";
+import CreatePetition from "./CreatePetition.tsx";
 
 const Petition = () => {
     const { id } = useParams<{ id: string }>();
@@ -12,12 +14,14 @@ const Petition = () => {
     const [currentPetitionId, setCurrentPetitionId] = useState<number | undefined>(undefined);
     const [categoryId, setCategoryId] = useState<number | undefined>(undefined);
     const [ownerId, setOwnerId] = useState<number | undefined>(undefined);
+    const [editPetitionOpen, setEditPetitionOpen] = useState(false);
     const [petition, setPetition] = useState<Petition | null>(null);
     const [errorFlag, setErrorFlag] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [supporters, setSupporters] = useState<Supporter[]>([]);
     const [supportTiers, setSupportTiers] = useState<SupportTier[]>([]);
     const [similarPetitions, setSimilarPetitions] = useState<Petition[]>([]);
+    const { userId } = useUserStore((state) => state);
 
     useEffect(() => {
         const getPetition = () => {
@@ -98,8 +102,18 @@ const Petition = () => {
         return supportTier ? supportTier.title : 'Unknown';
     };
 
+    const handleEditPetition = () => {
+        setEditPetitionOpen(true);
+    };
 
-    const petitionCardStyles1: CSS.Properties = {
+    const handleCloseEditPetition = () => {
+        window.location.reload();
+        setEditPetitionOpen(false);
+
+    };
+
+
+    const petitionCardStyles: CSS.Properties = {
         width: "1000px",
         margin: "10px",
         padding: "0px",
@@ -108,7 +122,6 @@ const Petition = () => {
 
     return (
         <Card>
-            <Navbar />
             {errorFlag && (
                 <Alert severity="error" sx={{
                     display: 'flex',
@@ -121,15 +134,19 @@ const Petition = () => {
                     {errorMessage}
                 </Alert>
             )}
-            {!errorFlag && petition && (
+            {!errorFlag && !editPetitionOpen && petition && (
                 <>
-                    <Card sx={petitionCardStyles1}>
+                    <Card sx={petitionCardStyles}>
+                        <Navbar />
+                    </Card>
+                    <Card sx={petitionCardStyles}>
                         <CardMedia
                             component="img"
                             height="400"
                             image={`http://localhost:4941/api/v1/petitions/${petition.petitionId}/image` || 'https://via.placeholder.com/400x200'}
                             alt={petition.title}
                         />
+
                         <CardContent>
                             <Typography variant="h3">
                                 {petition.title}
@@ -156,7 +173,7 @@ const Petition = () => {
                                 Number of Supporters: {petition.numberOfSupporters}
                             </Typography>
                             <Typography variant="body1" color="text.secondary">
-                                Total Money Raised: ${petition.moneyRaised}
+                                Total Money Raised: ${petition.moneyRaised|| 0}
                             </Typography>
                             <Typography variant="h4" component="div" sx={{ marginTop: '20px' }}>
                                 Support Tiers:
@@ -180,41 +197,56 @@ const Petition = () => {
                                     </Grid>
                                 ))}
                             </Grid>
-                            <Typography variant="h4" component="div" sx={{ marginTop: '20px' }}>
-                                Supporters:
-                            </Typography>
-                            <Grid container spacing={2} justifyContent="center">
-                                {supporters.map((supporter) => (
-                                    <Grid item xs={6} sm={3} key={supporter.supportId}>
-                                        <Card sx={{ marginBottom: '10px', marginTop: '10px', boxShadow: "0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19)" }}>
-                                            <CardContent>
-                                                <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                                                    <Avatar
-                                                        src={`https://seng365.csse.canterbury.ac.nz/api/v1/users/${supporter.supporterId}/image`}
-                                                        alt={`${supporter.supporterFirstName} ${supporter.supporterLastName}`}
-                                                        sx={{ marginRight: '8px' }}
-                                                    />
-                                                    <Typography variant="body1">
-                                                        {supporter.supporterFirstName} {supporter.supporterLastName}
+
+                            <Grid container spacing={2} justifyContent='center' sx={{minHeight: '200px'}}>
+                                <Typography variant="h4" component="div" sx={{ marginTop: '20px' }}>
+                                    Supporters:
+                                </Typography>
+                                <Grid container spacing={2} justifyContent="center">
+                                    {supporters.length === 0 && (
+                                        <Typography variant="h6" sx={{ marginTop: '20px' }}>
+                                            There are no supporters
+                                        </Typography>
+                                    )}
+                                    {supporters.map((supporter) => (
+                                        <Grid item xs={6} sm={3} key={supporter.supportId}>
+                                            <Card sx={{ marginBottom: '10px', marginTop: '10px', boxShadow: "0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19)" }}>
+                                                <CardContent>
+                                                    <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                                                        <Avatar
+                                                            src={`https://seng365.csse.canterbury.ac.nz/api/v1/users/${supporter.supporterId}/image`}
+                                                            alt={`${supporter.supporterFirstName} ${supporter.supporterLastName}`}
+                                                            sx={{ marginRight: '8px' }}
+                                                        />
+                                                        <Typography variant="body1">
+                                                            {supporter.supporterFirstName} {supporter.supporterLastName}
+                                                        </Typography>
+                                                    </Box>
+                                                    <Typography variant="body1" color="text.secondary">
+                                                        Message: {supporter.message || 'No message provided'}
                                                     </Typography>
-                                                </Box>
-                                                <Typography variant="body1" color="text.secondary">
-                                                    Message: {supporter.message || 'No message provided'}
-                                                </Typography>
-                                                <Typography variant="body1" color="text.secondary">
-                                                    Tier: {getSupportTierName(supporter.supportTierId)} tier on {new Date(supporter.timestamp).toLocaleDateString()}
-                                                </Typography>
-                                                <Typography variant="body1" color="text.secondary">
-                                                    Supported on: {new Date(supporter.timestamp).toLocaleDateString()}
-                                                </Typography>
-                                            </CardContent>
-                                        </Card>
-                                    </Grid>
-                                ))}
+                                                    <Typography variant="body1" color="text.secondary">
+                                                        Tier: {getSupportTierName(supporter.supportTierId)} tier on {new Date(supporter.timestamp).toLocaleDateString()}
+                                                    </Typography>
+                                                    <Typography variant="body1" color="text.secondary">
+                                                        Supported on: {new Date(supporter.timestamp).toLocaleDateString()}
+                                                    </Typography>
+                                                </CardContent>
+                                            </Card>
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                                <Box>
+                                    {userId === petition?.ownerId && (
+                                        <Button variant="contained" color="primary" onClick={handleEditPetition}>
+                                            Edit Petition
+                                        </Button>
+                                    )}
+                                </Box>
                             </Grid>
                         </CardContent>
                     </Card>
-                    <Card sx={petitionCardStyles1}>
+                    <Card sx={petitionCardStyles}>
                         <Typography variant="h4" component="div" sx={{ marginTop: '20px', minHeight: '100px' }}>
                             Similar Petitions:
                         </Typography>
@@ -240,6 +272,13 @@ const Petition = () => {
                         )}
                     </Card>
                 </>
+            )}
+            {editPetitionOpen && petition && (
+                <CreatePetition
+                    isEditing
+                    petitionDataPassed={petition}
+                    onClose={handleCloseEditPetition}
+                />
             )}
         </Card>
     );

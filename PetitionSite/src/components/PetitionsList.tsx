@@ -3,16 +3,14 @@ import React, { useEffect, useState} from "react";
 import CSS from 'csstype';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import {
-    Paper,
     AlertTitle,
     Alert,
-    Grid,
     TextField,
     Box,
     Typography,
     MenuItem,
     Menu,
-    IconButton, Pagination, Autocomplete, Button
+    IconButton, Pagination, Autocomplete, Button, Card
 } from "@mui/material";
 import PetitionsListObject from "./PetitionsListObject";
 import Navbar from './Navbar';
@@ -30,6 +28,7 @@ const PetitionsList = () => {
     const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [supportingCost, setSupportingCost] = useState<number | undefined>(undefined);
+
 
     useEffect(() => {
         const getPetitions = () => {
@@ -60,6 +59,7 @@ const PetitionsList = () => {
 
         getCategories();
         getPetitions();
+
     }, [searchParams]);
 
     const petition_rows = () => petitions.map((petition: Petition) => <PetitionsListObject key={petition.petitionId + petition.title} petition={petition}  categoryId={petition.categoryId} currentPetitionId={petition.petitionId} ownerId={petition.ownerId}/>);
@@ -109,7 +109,7 @@ const PetitionsList = () => {
         setSearchParams({ ...searchParams, startIndex: (value - 1) * searchParams.count! });
     };
 
-    //TODO: make clear actually clear the search box
+    //TODO: make clear actually clear the search boxStyles
     const handleClearFilters = () => {
         setSearchTerm('');
         setSelectedCategories([]);
@@ -117,27 +117,30 @@ const PetitionsList = () => {
         setSearchParams({ sortBy: 'CREATED_ASC', startIndex: 0, count: 8 });
     };
 
-    const card: CSS.Properties = {
-        padding: "10px",
-        margin: "20px",
-        width: "1700px",
-        minHeight: "100px",
-    };
 
-    const box: CSS.Properties = {
+    const boxStyles: CSS.Properties = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         marginBottom: "20px",
     };
 
+    const petitionCardStyles: CSS.Properties = {
+        width: "1700px",
+        margin: "10px",
+        padding: "0px",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    };
+
     return (
-        <Grid>
-            <Navbar/>
-            <Paper elevation={3} style={card}>
+        <Card>
+            <Card sx={petitionCardStyles}>
+                <Navbar />
+            </Card>
+            <Card elevation={3} style={petitionCardStyles}>
                 <h1>PetitionsList </h1>
                 <div>
-                    <Box style={box}>
+                    <Box style={boxStyles}>
                         <TextField id="search-input" label="Search Petitions" variant="outlined" onChange={handleSearch} />
                         <IconButton onClick={handleFilterClick} >
                             <SwapVertIcon />
@@ -155,7 +158,7 @@ const PetitionsList = () => {
                             <MenuItem onClick={() => handleSortChange('CREATED_DESC')}>Reverse Chronologically by creation date</MenuItem>
                         </Menu>
                     </Box>
-                    <Box style={box} sx={{ minWidth: '800px' }}>
+                    <Box style={boxStyles} sx={{ minWidth: '800px' }}>
                         <Autocomplete
                             multiple
                             id="category-filter"
@@ -177,16 +180,17 @@ const PetitionsList = () => {
                             label="Max Supporting Cost"
                             type="number"
                             value={supportingCost || ''}
+                            sx={{ marginLeft: '10px' }}
                             onChange={handleSupportingCostChange}
                         />
-                        <Button variant="contained" onClick={handleApplyFilters} sx={{ padding: '15px' }}>
+                        <Button variant="contained" onClick={handleApplyFilters} sx={{ marginLeft: '10px' }}>
                             Apply
                         </Button>
-                        <Button variant="outlined" onClick={handleClearFilters} sx={{ padding: '15px' }}>
+                        <Button variant="outlined" onClick={handleClearFilters} sx={{marginLeft: '10px'}}>
                             Clear
                         </Button>
                     </Box>
-                    <Box style={box}>
+                    <Box style={boxStyles}>
                         <Pagination
                             count={Math.ceil(totalPetitions / searchParams.count!)}
                             onChange={handlePageChange}
@@ -208,8 +212,8 @@ const PetitionsList = () => {
                         petition_rows()
                     )}
                 </div>
-            </Paper>
-        </Grid>
+            </Card>
+        </Card>
 
     );
 };
