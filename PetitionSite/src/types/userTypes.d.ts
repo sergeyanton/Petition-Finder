@@ -5,6 +5,12 @@ type UserRegister = {
     password: string
 }
 
+type InitialUser = {
+    firstName: string,
+    lastName: string,
+    email: string,
+}
+
 type UserLogin = {
     email: string,
     password: string
@@ -32,9 +38,9 @@ type UserReturn = {
 }
 
 type UserPatch = {
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-    currentPassword: string
+    firstName?: string,
+    lastName?: string,
+    email?: string,
+    password?: string,
+    currentPassword?: string
 }

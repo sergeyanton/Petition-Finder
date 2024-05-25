@@ -828,3 +828,35 @@
 2024-05-23 04:01:07:17 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
 2024-05-23 04:03:18:318 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
 2024-05-23 04:04:46:446 [31merror[39m: [31mDuplicate entry 'a.a@a.com' for key 'unique_key'[39m
+2024-05-24 19:13:11:1311 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2024-05-24 19:49:45:4945 [31merror[39m: [31mDuplicate entry 'penid' for key 'title'[39m
+2024-05-24 23:14:43:1443 [31merror[39m: [31mDuplicate entry 'a@gmail.com' for key 'unique_key'[39m
+2024-05-25 00:52:47:5247 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 00:54:13:5413 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 00:55:12:5512 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 01:05:43:543 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 01:06:07:67 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 01:07:28:728 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 01:08:51:851 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 01:17:20:1720 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 01:17:55:1755 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 19:23:46:2346 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 19:24:12:2412 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:01:27:127 [31merror[39m: [31mDuplicate entry 'FREE ICE CREAM ALWAYS' for key 'title'[39m
+2024-05-25 21:02:25:225 [31merror[39m: [31mDuplicate entry 'FREE ICE CREAM ALWAYS' for key 'title'[39m
+2024-05-25 21:07:44:744 [31merror[39m: [31mDuplicate entry 'a@gmail.com' for key 'unique_key'[39m
+2024-05-25 21:07:49:749 [31merror[39m: [31mDuplicate entry 'a@gmail.com' for key 'unique_key'[39m
+2024-05-25 21:10:40:1040 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:12:18:1218 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:12:22:1222 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:14:18:1418 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:14:23:1423 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:21:58:2158 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:22:45:2245 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:22:46:2246 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:23:07:237 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:23:23:2323 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:23:40:2340 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:23:49:2349 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:23:50:2350 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m
+2024-05-25 21:41:57:4157 [31merror[39m: [31mENOENT: no such file or directory, open 'C:\Users\anton\Documents\Uni\Y3\SENG365\seng365-assignment-2\seng365-reference-server\storage\images\user_11.jpg'[39m

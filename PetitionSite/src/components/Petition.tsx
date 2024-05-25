@@ -2,7 +2,19 @@ import {useState, useEffect} from 'react';
 import {useParams, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import CSS from 'csstype';
-import {Alert, AlertTitle, Avatar, Box, Button, Card, CardContent, CardMedia, Grid, Typography} from "@mui/material";
+import {
+    Alert,
+    AlertTitle,
+    Avatar,
+    Box,
+    Button,
+    Card,
+    CardContent,
+    CardMedia,
+    Grid,
+    TextField,
+    Typography
+} from "@mui/material";
 import PetitionsListObject from './PetitionsListObject';
 import Navbar from "./Navbar.tsx";
 import useUserStore from "../store/UserStore.ts";
@@ -21,7 +33,11 @@ const Petition = () => {
     const [supporters, setSupporters] = useState<Supporter[]>([]);
     const [supportTiers, setSupportTiers] = useState<SupportTier[]>([]);
     const [similarPetitions, setSimilarPetitions] = useState<Petition[]>([]);
-    const { userId } = useUserStore((state) => state);
+    const [userSupportStatus, setUserSupportStatus] = useState<Supporter[]>([]);
+    const [supportMessage, setSupportMessage] = useState<string | undefined>('');
+    const [selectedSupportTier, setSelectedSupportTier] = useState<number | null>(null);
+    const [showSupportMessage, setShowSupportMessage] = useState(false);
+    const { userId, isLoggedIn, token } = useUserStore((state) => state);
 
     useEffect(() => {
         const getPetition = () => {
@@ -38,10 +54,17 @@ const Petition = () => {
                 });
         };
 
+
+
         const getSupporters = () => {
             axios.get(`http://localhost:4941/api/v1/petitions/${id}/supporters`)
                 .then((response) => {
                     setSupporters(response.data);
+                    if (isLoggedIn) {
+                        setUserSupportStatus(response.data.filter(
+                            (supporter: Supporter) => supporter.supporterId === userId
+                        ));
+                    }
                     setErrorFlag(false);
                 })
                 .catch((error) => {
@@ -60,6 +83,23 @@ const Petition = () => {
         getPetition();
         getSupporters();
     }, [id, location.state]);
+
+
+    useEffect(() => {
+        let timeout: ReturnType<typeof setTimeout> | null = null;
+        if (errorFlag) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            timeout = setTimeout(() => {
+                setErrorFlag(false);
+                setErrorMessage("");
+            }, 3000);
+        }
+        return () => {
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+        };
+    }, [errorFlag]);
 
     const getSimilarPetitions = (currentPetitionId: number, categoryId: number, ownerId: number) => {
         Promise.all([
@@ -112,12 +152,55 @@ const Petition = () => {
 
     };
 
+    const handleSupportTier = (supportTierId: number) => {
+        setSelectedSupportTier(supportTierId);
+        setShowSupportMessage(true);
+    };
+
+    const handleSupportMessageHide = () => {
+        setShowSupportMessage(false);
+    };
+
+    const handleSupportSubmit = () => {
+        if (!selectedSupportTier) {
+            setErrorFlag(true);
+            setErrorMessage('Please select a support tier.');
+            return;
+        }
+
+        const supportPayload = {
+            supportTierId: selectedSupportTier,
+            message: supportMessage === '' ? undefined : supportMessage,
+        };
+
+        axios.post(`http://localhost:4941/api/v1/petitions/${id}/supporters`,
+            supportPayload,
+            {
+                headers: {
+                    'X-Authorization': token!,
+                },
+            }
+        ).then((response) => {
+            const newSupporter: Supporter = response.data;
+            setSupporters((prevSupporters) => [...prevSupporters, newSupporter]);
+            setUserSupportStatus((prevUserSupportStatus) => [...prevUserSupportStatus, newSupporter]);
+            setSelectedSupportTier(null);
+            setSupportMessage('');
+            setShowSupportMessage(false);
+            setErrorFlag(false);
+            window.location.reload();
+        }).catch(() => {
+            setErrorFlag(true);
+            setErrorMessage('Error supporting the petition.');
+        });
+    };
+
 
     const petitionCardStyles: CSS.Properties = {
         width: "1000px",
         margin: "10px",
         padding: "0px",
-        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     };
 
     return (
@@ -128,13 +211,15 @@ const Petition = () => {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    width: '30%',
+                    margin: '0 auto'
                 }}>
                     <AlertTitle>Error</AlertTitle>
                     {errorMessage}
                 </Alert>
             )}
-            {!errorFlag && !editPetitionOpen && petition && (
+            {!editPetitionOpen && petition && (
                 <>
                     <Card sx={petitionCardStyles}>
                         <Navbar />
@@ -148,32 +233,32 @@ const Petition = () => {
                         />
 
                         <CardContent>
-                            <Typography variant="h3">
+                            <Typography variant="h2">
                                 {petition.title}
                             </Typography>
-                            <Typography variant="body1" color="text.secondary">
+                            <Typography variant="h6" color="text.secondary">
                                 {petition.description}
                             </Typography>
 
-                            <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '5px', justifyContent: 'center' }}>
-                                Owner:
+                            <Box sx={{ display: 'flex', alignItems: 'center', margin: '10px', justifyContent: 'center' }}>
+                                <strong> Owner: </strong>
                                 <Avatar
-                                    src={`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image`}
+                                    src={`http://localhost:4941/api/v1/users/${petition.ownerId}/image`}
                                     alt={`${petition.ownerFirstName} ${petition.ownerLastName}`}
                                     sx={{ marginRight: '8px', marginLeft: '10px' }}
                                 />
-                                <Typography variant="body1">
+                                <Typography variant="subtitle1">
                                     {petition.ownerFirstName} {petition.ownerLastName}
                                 </Typography>
                             </Box>
-                            <Typography variant="body1" color="text.secondary">
-                                Creation Date: {new Date(petition.creationDate).toLocaleDateString()}
+                            <Typography variant="subtitle1" color="text.secondary">
+                                <strong> Creation Date: </strong> {new Date(petition.creationDate).toLocaleDateString('en-GB')}
                             </Typography>
-                            <Typography variant="body1" color="text.secondary">
-                                Number of Supporters: {petition.numberOfSupporters}
+                            <Typography variant="subtitle1" color="text.secondary">
+                               <strong> Number of Supporters: </strong> {petition.numberOfSupporters}
                             </Typography>
-                            <Typography variant="body1" color="text.secondary">
-                                Total Money Raised: ${petition.moneyRaised|| 0}
+                            <Typography variant="subtitle1" color="text.secondary">
+                                <strong> Total Money Raised: </strong> ${petition.moneyRaised|| 0}
                             </Typography>
                             <Typography variant="h4" component="div" sx={{ marginTop: '20px' }}>
                                 Support Tiers:
@@ -181,18 +266,46 @@ const Petition = () => {
                             <Grid container spacing={2} justifyContent='center' >
                                 {petition.supportTiers.map((tier) => (
                                     <Grid item xs={6} key={tier.supportTierId} >
-                                        <Card sx={{ marginBottom: '10px', marginTop: '10px', minHeight: '150px', boxShadow: "0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19)" }}>
+                                        <Card sx={{ margin: '10px', minHeight: '150px', boxShadow: "0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19)" }}>
                                             <CardContent>
                                                 <Typography variant="h5" component="div" >
                                                     {tier.title}
                                                 </Typography>
-                                                <Typography variant="body1" color="text.secondary">
+                                                <Typography variant="subtitle1" color="text.secondary">
                                                     {tier.description}
                                                 </Typography>
-                                                <Typography variant="body1" color="text.secondary">
-                                                    Cost: ${tier.cost}
+                                                <Typography variant="subtitle1" color="text.secondary">
+                                                    <strong> Cost: </strong> ${tier.cost}
                                                 </Typography>
                                             </CardContent>
+                                            {(isLoggedIn && petition.ownerId !== userId && (!userSupportStatus || !userSupportStatus.some((supporter) => supporter.supportTierId === tier.supportTierId))) && (
+                                                <Box>
+                                                    <Button variant="contained" color="primary" sx={{ marginBottom: '10px'}} onClick={() => handleSupportTier(tier.supportTierId)}>
+                                                        Support
+                                                    </Button>
+                                                    {selectedSupportTier === tier.supportTierId && showSupportMessage && (
+                                                        <Grid item xs={12} sx={{margin:'10px'}}>
+                                                            <TextField
+                                                                label="Support Message"
+                                                                variant="outlined"
+                                                                value={supportMessage}
+                                                                onChange={(e) => setSupportMessage(e.target.value)}
+                                                                multiline
+                                                                rows={3}
+                                                                fullWidth
+                                                            />
+                                                            <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '16px', marginBottom: '16px'}}>
+                                                                <Button variant="contained" onClick={handleSupportSubmit}>
+                                                                    Submit
+                                                                </Button>
+                                                                <Button variant="outlined" onClick={handleSupportMessageHide} sx={{marginLeft: '10px'}}>
+                                                                    Cancel
+                                                                </Button>
+                                                            </Box>
+                                                        </Grid>
+                                                    )}
+                                                </Box>
+                                            )}
                                         </Card>
                                     </Grid>
                                 ))}
@@ -209,27 +322,35 @@ const Petition = () => {
                                         </Typography>
                                     )}
                                     {supporters.map((supporter) => (
-                                        <Grid item xs={6} sm={3} key={supporter.supportId}>
-                                            <Card sx={{ marginBottom: '10px', marginTop: '10px', boxShadow: "0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19)" }}>
-                                                <CardContent>
-                                                    <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                                        <Grid item key={supporter.supportId} sx={{maxWidth: '350px'}}>
+                                            <Card sx={{ marginBottom: '10px', marginTop: '10px', boxShadow: "0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19)", }}>
+                                                <CardContent sx={{ textAlign: 'left' }}>
+                                                    <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '10px', }}>
                                                         <Avatar
-                                                            src={`https://seng365.csse.canterbury.ac.nz/api/v1/users/${supporter.supporterId}/image`}
+                                                            src={`http://localhost:4941/api/v1/users/${supporter.supporterId}/image`}
                                                             alt={`${supporter.supporterFirstName} ${supporter.supporterLastName}`}
                                                             sx={{ marginRight: '8px' }}
                                                         />
-                                                        <Typography variant="body1">
+                                                        <Typography variant="subtitle1">
                                                             {supporter.supporterFirstName} {supporter.supporterLastName}
                                                         </Typography>
                                                     </Box>
-                                                    <Typography variant="body1" color="text.secondary">
-                                                        Message: {supporter.message || 'No message provided'}
+                                                    <Typography variant="subtitle1" color="text.secondary">
+                                                        <strong> Message: </strong> {supporter.message || 'No message provided'}
                                                     </Typography>
-                                                    <Typography variant="body1" color="text.secondary">
-                                                        Tier: {getSupportTierName(supporter.supportTierId)} tier on {new Date(supporter.timestamp).toLocaleDateString()}
+                                                    <Typography variant="subtitle1" color="text.secondary">
+                                                       <strong> Tier: </strong>{getSupportTierName(supporter.supportTierId)}
                                                     </Typography>
-                                                    <Typography variant="body1" color="text.secondary">
-                                                        Supported on: {new Date(supporter.timestamp).toLocaleDateString()}
+                                                    <Typography variant="subtitle1" color="text.secondary">
+                                                        <strong> Supported on: </strong> {new Date(supporter.timestamp).toLocaleDateString('en-GB',{
+                                                        day: '2-digit',
+                                                        month: '2-digit',
+                                                        year: 'numeric',
+                                                        hour: '2-digit',
+                                                        minute: '2-digit',
+                                                        second: '2-digit',
+                                                        hour12: true // for 24-hour format
+                                                    })}
                                                     </Typography>
                                                 </CardContent>
                                             </Card>

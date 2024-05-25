@@ -58,8 +58,7 @@ const CreatePetition = ({
             }))
             : [{ title: "", description: "", cost: 0 }]
     );
-    const [petitionImagePreview, setPetitionImagePreview] = useState<
-        string | null
+    const [petitionImagePreview, setPetitionImagePreview] = useState<string | null
     >(
         isEditing && pData
             ? `http://localhost:4941/api/v1/petitions/${pData.petitionId}/image`
@@ -72,7 +71,7 @@ const CreatePetition = ({
 
     useEffect(() => {
         if (!isLoggedIn) {
-            navigate("/");
+            navigate("/home");
         }
     }, [isLoggedIn, navigate]);
 
@@ -190,6 +189,11 @@ const CreatePetition = ({
         }
     };
 
+    const isValidImageType = (file: File) => {
+        const validTypes = ["image/png", "image/jpeg", "image/gif"];
+        return validTypes.includes(file.type);
+    };
+
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files[0]) {
             setPetitionImage(event.target.files[0]);
@@ -198,7 +202,18 @@ const CreatePetition = ({
     };
 
     const handleSubmit = () => {
-        // Validate the form fields
+        if (!isEditing && petitionImage === null) {
+            setErrorFlag(true);
+            setErrorMessage("Petition image is required");
+            return;
+        }
+
+        if (petitionImage && !isValidImageType(petitionImage)) {
+            setErrorFlag(true);
+            setErrorMessage("Invalid image type. Only PNG, JPEG, and GIF files are allowed.");
+            return;
+        }
+
         if (title.trim() === "") {
             setErrorFlag(true);
             setErrorMessage("Title is required");
@@ -251,16 +266,13 @@ const CreatePetition = ({
                 supportTiers,
             };
 
-            axios
-                .post("http://localhost:4941/api/v1/petitions", petitionData, {
+            axios.post("http://localhost:4941/api/v1/petitions", petitionData, {
                     headers: {
                         "X-Authorization": token!,
                     },
-                })
-                .then((response) => {
+                }).then((response) => {
                     const petitionId = response.data.petitionId;
-                    axios
-                        .put(
+                    axios.put(
                             `http://localhost:4941/api/v1/petitions/${petitionId}/image`,
                             petitionImage,
                             {
@@ -269,19 +281,16 @@ const CreatePetition = ({
                                     "X-Authorization": token!,
                                 },
                             }
-                        )
-                        .then(() => {
+                        ).then(() => {
                             setErrorFlag(false);
                             navigate(`/petition/${petitionId}`);
-                        })
-                        .catch((error) => {
+                        }).catch((error) => {
                             setErrorFlag(true);
                             setErrorMessage(
                                 error.toString() + " Error uploading petition image"
                             );
                         });
-                })
-                .catch((error) => {
+                }).catch((error) => {
                     setErrorFlag(true);
                     if (error.response.status === 403) {
                         setErrorMessage("Petition title already exists");
@@ -301,9 +310,7 @@ const CreatePetition = ({
                         tier.cost !== currentTier.cost
                     ) {
                         // Check if the support tier has been changed
-                        return axios.patch(
-                            `http://localhost:4941/api/v1/petitions/${petitionDataPassed.petitionId}/supportTiers/${currentTier.supportTierId}`,
-                            tier,
+                        return axios.patch(`http://localhost:4941/api/v1/petitions/${petitionDataPassed.petitionId}/supportTiers/${currentTier.supportTierId}`, tier,
                             {
                                 headers: {
                                     "X-Authorization": token!,
@@ -313,9 +320,7 @@ const CreatePetition = ({
                     }
                 } else {
                     // Create a new support tier
-                    return axios.put(
-                        `http://localhost:4941/api/v1/petitions/${petitionDataPassed?.petitionId}/supportTiers`,
-                        tier,
+                    return axios.put(`http://localhost:4941/api/v1/petitions/${petitionDataPassed?.petitionId}/supportTiers`, tier,
                         {
                             headers: {
                                 "X-Authorization": token!,
@@ -323,7 +328,7 @@ const CreatePetition = ({
                         }
                     );
                 }
-                return Promise.resolve(); // Return a resolved promise if no update is needed
+                return Promise.resolve();
             });
 
             Promise.all(promises)
@@ -353,8 +358,7 @@ const CreatePetition = ({
     const handleDeleteConfirm = async () => {
         try {
             // Check if the petition has any supporters
-            const response = await axios.get(
-                `http://localhost:4941/api/v1/petitions/${petitionDataPassed?.petitionId}/supporters`,
+            const response = await axios.get(`http://localhost:4941/api/v1/petitions/${petitionDataPassed?.petitionId}/supporters`,
                 {
                     headers: {
                         "X-Authorization": token!,
@@ -369,7 +373,6 @@ const CreatePetition = ({
                 return;
             }
 
-            // Delete the petition
             await axios.delete(
                 `http://localhost:4941/api/v1/petitions/${petitionDataPassed?.petitionId}`,
                 {
@@ -379,8 +382,7 @@ const CreatePetition = ({
                 }
             );
 
-            // Close the CreatePetition component and navigate to the home page
-            navigate("/");
+            navigate("/home");
         } catch (error) {
             setErrorFlag(true);
             setErrorMessage("Error deleting the petition.");
@@ -409,8 +411,7 @@ const CreatePetition = ({
                         width: "40%",
                         marginBottom: 2,
                         alignItems: "center",
-                    }}
-                >
+                    }}>
                     <AlertTitle>Error</AlertTitle>
                     {errorMessage}
                 </Alert>
@@ -439,10 +440,10 @@ const CreatePetition = ({
                                         style={{ display: "none" }}
                                         onChange={handleImageUpload}
                                     />
-                                    <Button variant="contained">Upload Petition Image</Button>
+                                    <Button variant="contained" component="span">Upload Petition Image</Button>
                                 </label>
                             </Grid>
-                            <Grid item xs={12} sx={{ width: "80%", justifyContent: "space-between" }}>
+                            <Grid item xs={12} sx={{ justifyContent: "space-between" }}>
                                 <TextField
                                     label="Title"
                                     variant="outlined"
@@ -534,11 +535,11 @@ const CreatePetition = ({
                                 <Button variant="contained" onClick={handleSubmit} startIcon={<CheckIcon />}>
                                     {isEditing ? "Save" : "Create"}
                                 </Button>
-                                {isEditing && (
+                                {isEditing ? (
                                     <Box sx={{ display: "flex", gap: "10px" }}>
                                         <Button
                                             variant="outlined"
-                                            onClick={onClose}
+                                            onClick={() => navigate(`/petition/${petitionDataPassed?.petitionId}`)}
                                             startIcon={<CloseIcon />}>
                                             Cancel
                                         </Button>
@@ -550,6 +551,13 @@ const CreatePetition = ({
                                             Delete
                                         </Button>
                                     </Box>
+                                ) : (
+                                    <Button
+                                        variant="outlined"
+                                        onClick={() => navigate("/home")}
+                                        startIcon={<CloseIcon />}>
+                                        Cancel
+                                    </Button>
                                 )}
                             </Box>
                         </CardContent>

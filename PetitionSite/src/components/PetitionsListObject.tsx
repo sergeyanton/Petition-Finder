@@ -90,21 +90,21 @@ const PetitionsListObject = ({ petition, currentPetitionId, categoryId, ownerId 
                             </Typography>
                         )}
                         <Box sx={{ minHeight: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                            <Typography gutterBottom component="div" sx={{ fontWeight: 'bold', wordBreak: 'break-word' }}>
+                            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', wordBreak: 'break-word' }}>
                                 {petition.title}
                             </Typography>
                         </Box>
-                        <Typography variant="body2" color="text.secondary" align="left">
-                            Creation Date: {new Date(petition.creationDate).toLocaleDateString()}
+                        <Typography variant="subtitle2" color="text.secondary" align="left" >
+                            <strong> Creation Date: </strong> {new Date(petition.creationDate).toLocaleDateString('en-GB')}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary" align="left">
-                            Minimum Supporting Cost: ${petition.supportingCost}
+                        <Typography variant="subtitle2" color="text.secondary" align="left">
+                            <strong> Minimum Supporting Cost:</strong> ${petition.supportingCost}
                         </Typography>
 
-                        <div style={{ display: "flex", alignItems: "center" }}>
-                            {`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image` && (
+                        <div style={{ display: "flex", alignItems: "center", marginTop: '20px'}}>
+                            {`http://localhost:4941/api/v1/users/${petition.ownerId}/image` && (
                                 <Avatar
-                                    src={`https://seng365.csse.canterbury.ac.nz/api/v1/users/${petition.ownerId}/image`}
+                                    src={`http://localhost:4941/api/v1/users/${petition.ownerId}/image`}
                                     sx={{ marginRight: "8px" }}
                                 />
                             )}

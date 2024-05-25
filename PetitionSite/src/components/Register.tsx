@@ -204,8 +204,7 @@ export default function Register() {
                                     borderRadius: '50%',
                                     minWidth: 0,
                                     padding: '6px',
-                                }}
-                            >
+                                }}>
                                 <AddIcon />
                             </Button>
                         </label>

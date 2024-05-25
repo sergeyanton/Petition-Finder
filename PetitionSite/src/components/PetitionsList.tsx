@@ -9,8 +9,7 @@ import {
     Box,
     Typography,
     MenuItem,
-    Menu,
-    IconButton, Pagination, Autocomplete, Button, Card
+    Menu, Pagination, Autocomplete, Button, Card
 } from "@mui/material";
 import PetitionsListObject from "./PetitionsListObject";
 import Navbar from './Navbar';
@@ -142,9 +141,9 @@ const PetitionsList = () => {
                 <div>
                     <Box style={boxStyles}>
                         <TextField id="search-input" label="Search Petitions" variant="outlined" onChange={handleSearch} />
-                        <IconButton onClick={handleFilterClick} >
-                            <SwapVertIcon />
-                        </IconButton>
+                        <Button onClick={handleFilterClick} variant="contained" startIcon={<SwapVertIcon />} sx = {{margin: '10px'}}>
+                            Sort
+                        </Button>
                         <Menu
                             anchorEl={sortAnchor}
                             open={Boolean(sortAnchor)}
