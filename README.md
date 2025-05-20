@@ -1,5 +1,9 @@
-# SENG365 Assignment 2
+# Petition-Finder
+A project done as an assignment for COSC365 at the University of Canterbury. 
 
+Pettition Finder is a site that features intuitive browsing with search, filtering, and sorting options, 
+along with pagination for easy navigation. Registered users can create and manage their own petitions, 
+including adding images and support tiers, while supporters can contribute to causes with optional messages. 
 
 ## Running locally
 
