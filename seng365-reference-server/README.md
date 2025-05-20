@@ -1,4 +1,4 @@
-# SENG365 Assignment 1 Reference Server (Petition Site)
+# Server
 
 ## Running locally
 
@@ -28,6 +28,3 @@ SENG365_MYSQL_USER=abc123
 SENG365_MYSQL_PASSWORD=password
 SENG365_MYSQL_DATABASE=abc123_s365
 ```
-
-## Final notes
-If you find an inconsistency or issue with the reference server please reach out to Morgan English `morgan.english@canterbury.ac.nz`.
